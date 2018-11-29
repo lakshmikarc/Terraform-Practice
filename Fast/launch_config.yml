@@ -1,0 +1,14 @@
+- name: create ec2 launch config 
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: ec2 lc create
+    ec2_lc:
+    name: "{{ launch_config }}"
+    image_id: ami-c58fa2bc
+    instance_type: t2.micro
+    key_name: Wordpress-IIS
+    security_group: ['AutoScaling_WordPress']
+    region: eu-west-1
+    user_data_path: /user_data
+  

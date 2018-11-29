@@ -1,0 +1,17 @@
+- name: create auto scaling group
+  hosts: localhost
+  connection: local
+  tasks:
+  -  name: create auto scaling group
+     region: eu-west-1
+     load_balancers: redgeekwebelb
+     availability_zones: ['eu-west-1b']
+     launch_config_name: "{{ launch_config }}"
+     min_size: 1
+     max_size: 1
+     desired_capacity: 1
+     replace_all-instances: yes
+     vpc_zone_identifier: ['subnet-76451101']
+     tags:
+        - type: redgeek_web_server
+     wait_for_instances: yes

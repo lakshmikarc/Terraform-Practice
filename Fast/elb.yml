@@ -1,0 +1,26 @@
+- name: create elb
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: creating elb
+    ec2_elb_lb:
+    name: redgeekwebelb
+    state: present
+    region: eu-wes-1
+    cross_az_load_balacing: yes
+    listeners:
+      - protocol: http
+        load_balance_port: 80
+        instance_port: 80
+    tags:
+        name: redgeek_elb
+    security_group_ids: sg-246b3340
+    zones: eu-west-1-1b
+    health_check:
+       ping_protocol: http
+       ping_port: 80
+       ping_path: "/index.html"
+       response_timeout: 5
+       interval: 30
+       unhealthy_threshold: 2
+       healthy_threshold: 2
