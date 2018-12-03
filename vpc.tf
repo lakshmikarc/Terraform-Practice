@@ -22,6 +22,7 @@ resource "aws_subnet" "terra_public" {
   vpc_id            = "${aws_vpc.terra_vpc.id}"
   availability_zone = "${element(var.azs, count.index)}"
   cidr_block        = "${element(var.subnet_cidr, count.index)}"
+  map_public_ip_on_launch = "true"
 
   tags {
     Name = "subnet-${count.index +1}"

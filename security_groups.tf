@@ -1,6 +1,5 @@
 #create security group to allow http access
 resource "aws_security_group" "Webservers" {
-  Name        = "Http Allow"
   description = "Allow http bases traffic"
   vpc_id      = "${aws_vpc.terra_vpc.id}"
 
