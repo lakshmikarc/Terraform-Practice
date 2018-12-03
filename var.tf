@@ -21,4 +21,17 @@ variable "ami" {
   }
 
 }
+variable "subnet_cidr" {
+  type = "list"
+  default = ["192.168.3.0/24","192.168.4.0/24"]
+  }
+variable "vpc_cidr" {
+  default = "192.168.0.0/16"
+  
+}
+variable "azs" {
+  type = "list"
+  default = ["eu-west-1a","eu-west-1b"]
+  }
+
 

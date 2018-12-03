@@ -1,7 +1,7 @@
  
 resource "aws_instance" "test" {
   ami           = "${lookup(var.ami,var.aws_region)}"
-  count         =   2
+  count         =   1
   instance_type = "${var.instance_type}"
   key_name      = "${var.key_name}"
   user_data     = "${file("files/bootstrap.sh")}"
