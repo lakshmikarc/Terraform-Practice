@@ -1,3 +1,4 @@
 *.exe
 *.tfvars
 *.tfstate
+*.backup
